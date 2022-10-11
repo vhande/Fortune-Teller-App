@@ -17,7 +17,7 @@ function ModalComponent2({ wife, show, closeModal, location, nestedModal, fetchF
         {location !== "" && wife.age !== undefined ?
           `She is ${wife.age.age} years old. ` : ""}
         {wife.age !== undefined &&location !== "" ?
-          `She is waiting for you in ${location}.` : <div className="d-flex justify-content-center align-items-center">
+          `She is waiting for you in ${location}.` : <div className="d-flex">
           <Spinner className="spinner mx-2" animation="border" role="status">
           </Spinner><p>This may take a while...</p></div>}
       </Modal.Body>

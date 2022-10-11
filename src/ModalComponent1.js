@@ -1,5 +1,5 @@
 import React from 'react'
-import { Modal, Button, ButtonGroup } from 'react-bootstrap'
+import { Modal, Button, ButtonGroup, Spinner } from 'react-bootstrap'
 
 function ModalComponent1({ husband, show, closeModal, location, nestedModal, fetchMalePhoto }) {
 
@@ -10,14 +10,16 @@ function ModalComponent1({ husband, show, closeModal, location, nestedModal, fet
       aria-labelledby="contained-modal-title-vcenter"
       centered>
       <Modal.Body>
-        <h4>I see...</h4>
+        {husband.age !== undefined ? <h4>I see...</h4> : "" }
         {location !== "" && husband.age !== undefined ?
           `His name is ${husband.age.name}. ` : ""}
         {husband.age !== undefined && location !== "" ?
           `He is ${husband.age.age} years old. ` : ""}
         {husband.age !== undefined && location !== "" ?
           `He is waiting for you in ${location}.` :
-          "This may take a while..." }
+          <div className="d-flex">
+            <Spinner className="spinner mx-2" animation="border" role="status">
+            </Spinner><p>This may take a while...</p></div>}
       </Modal.Body>
       {husband.age !== undefined ? <Modal.Footer className='d-flex justify-content-center'>
        <ButtonGroup >

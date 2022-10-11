@@ -9,27 +9,27 @@ function ModalComponent2({ wife, show, closeModal, location, nestedModal, fetchF
       show={show}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
-      centered>
+      centered className="d-flex justify-content-center align-items-center w-100">
       <Modal.Body className="m-4">
-        {wife.age !== undefined ? <h4>I see...</h4> : ""}
+        {wife.age !== undefined ? <h4>I see...</h4> : "" }
         {location !== "" && wife.age !== undefined ?
           `Her name is ${wife.age.name}. ` : ""}
         {location !== "" && wife.age !== undefined ?
           `She is ${wife.age.age} years old. ` : ""}
-        {wife.age !== undefined && location !== "" ?
-          `She is waiting for you in ${location}.` : <div className="d-flex">
-            <Spinner className="spinner mx-2" animation="border" role="status">
-            </Spinner><p>This may take a while...</p></div>}
+        {wife.age !== undefined &&location !== "" ?
+          `She is waiting for you in ${location}.` : <div className="d-flex justify-content-center align-items-center">
+          <Spinner className="spinner mx-2" animation="border" role="status">
+          </Spinner><p>This may take a while...</p></div>}
       </Modal.Body>
       {wife.age !== undefined ? <Modal.Footer className='d-flex justify-content-center'>
-        <ButtonGroup >
+      <ButtonGroup >
           <Button
             onClick={() => { nestedModal(); fetchFemalePhoto(); closeModal() }}
             className="rounded m-3">I'd like to see her.</Button>
           <Button
             className="rounded m-3"
             onClick={closeModal}>Nah, I'll pass.</Button>
-        </ButtonGroup>
+        </ButtonGroup> 
       </Modal.Footer> : ""}
     </Modal>
   );

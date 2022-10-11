@@ -8,7 +8,7 @@ function ModalComponent1({ husband, show, closeModal, location, nestedModal, fet
       show={show}
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
-      centered>
+      centered className="d-flex justify-content-center align-items-center w-100">
       <Modal.Body>
         {husband.age !== undefined ? <h4>I see...</h4> : "" }
         {location !== "" && husband.age !== undefined ?

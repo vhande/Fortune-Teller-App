@@ -19,16 +19,16 @@ function ModalComponent1({ husband, show, closeModal, location, nestedModal, fet
           `He is waiting for you in ${location}.` :
           "This may take a while..." }
       </Modal.Body>
-      <Modal.Footer className='d-flex justify-content-center'>
-        <ButtonGroup >
-          <Button
+      {husband.age !== undefined ? <Modal.Footer className='d-flex justify-content-center'>
+       <ButtonGroup >
+           <Button
             onClick={() => { fetchMalePhoto(); nestedModal(); closeModal() }}
             className="rounded m-3">I'd like to see him.</Button>
-          <Button
+           <Button
             className="rounded m-3"
-            onClick={closeModal}>Nah, I'll pass.</Button>
-        </ButtonGroup>
-      </Modal.Footer>
+            onClick={closeModal}>Nah, I'll pass.</Button> 
+        </ButtonGroup> 
+      </Modal.Footer> : "" }
     </Modal>
   );
 }

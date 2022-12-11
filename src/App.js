@@ -16,7 +16,7 @@ function App() {
   const [malePhoto, setMalePhoto] = useState("")
 
   // fetch user ip, then country
-  const [userCountry, setUserCountry] = useState([])
+  const [userCountry, setUserCountry] = useState("")
   const fetchUserAdress = async () => {
     let res = await fetch('https://api.ipify.org/?format=json')
     let data = await res.json()

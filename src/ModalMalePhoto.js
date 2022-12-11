@@ -20,7 +20,7 @@ function ModalMalePhoto({ show, closeModal}) {
       </Modal.Body>
       <Modal.Footer className="d-flex justify-content-center ">
         <ButtonGroup>
-          <a href={ context.userCountry !== undefined ? `https://www.skyscanner.net/transport/flights/${context.userCountry}/${context.maleCountryCode}/?adults=1&adultsv2=1&cabinclass=economy&children=0&childrenv2=&destinationentityid=29475436&inboundaltsenabled=false&infants=0&originentityid=27546033&outboundaltsenabled=false&preferdirects=false&ref=home&rtn=0` : 'https://www.skyscanner.net/' }><Button className="rounded m-3">Next flight to {context.maleCountry}</Button></a>
+          <a href={ context.userCountry !== "" ? `https://www.skyscanner.net/transport/flights/${context.userCountry}/${context.maleCountryCode}/?adults=1&adultsv2=1&cabinclass=economy&children=0&childrenv2=&destinationentityid=29475436&inboundaltsenabled=false&infants=0&originentityid=27546033&outboundaltsenabled=false&preferdirects=false&ref=home&rtn=0` : 'https://www.skyscanner.net/' }><Button className="rounded m-3">Next flight to {context.maleCountry}</Button></a>
           <Button 
            className="rounded m-3"
            onClick={()=>{closeModal(); context.setMalePhoto(""); context.setMaleCountry("");}}>Nah, thanks anyway.</Button>

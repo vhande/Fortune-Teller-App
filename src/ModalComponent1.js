@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Modal, Button, ButtonGroup, Spinner } from 'react-bootstrap'
+import {useContext} from 'react'
+import Info from "./Info"
 
-function ModalComponent1({ husband, show, closeModal, location, nestedModal, fetchMalePhoto }) {
+function ModalComponent1({ show, closeModal, nestedModal }) {
 
+  const context = useContext(Info)
   return (
     <Modal dialogClassName="my-modal"
       show={show}
@@ -10,27 +13,26 @@ function ModalComponent1({ husband, show, closeModal, location, nestedModal, fet
       aria-labelledby="contained-modal-title-vcenter"
       centered className="d-flex justify-content-center align-items-center w-100">
       <Modal.Body>
-        {husband.age !== undefined ? <h4>I see...</h4> : "" }
-        {location !== "" && husband.age !== undefined ?
-          `His name is ${husband.age.name}. ` : ""}
-        {husband.age !== undefined && location !== "" ?
-          `He is ${husband.age.age} years old. ` : ""}
-        {husband.age !== undefined && location !== "" ?
-          `He is waiting for you in ${location}.` :
+        {context.maleCountry !== "" ?
+          <>
+            <h4 className="m-3">I see...</h4>
+            <p className="m-3">His name is {context.maleAge.name}. He is {context.maleAge.age} years old. He is waiting for you in {context.maleCountry}.</p>
+          </>
+          :
           <div className="d-flex">
             <Spinner className="spinner mx-2" animation="border" role="status">
             </Spinner><p>This may take a while...</p></div>}
       </Modal.Body>
-      {husband.age !== undefined ? <Modal.Footer className='d-flex justify-content-center'>
-       <ButtonGroup >
-           <Button
-            onClick={() => { fetchMalePhoto(); nestedModal(); closeModal() }}
+      {context.maleCountry !== "" ? <Modal.Footer className='d-flex justify-content-center'>
+        <ButtonGroup >
+          <Button
+            onClick={() => { context.fetchMalePhoto(); nestedModal(); closeModal() }}
             className="rounded m-3">I'd like to see him.</Button>
-           <Button
+          <Button
             className="rounded m-3"
-            onClick={closeModal}>Nah, I'll pass.</Button> 
-        </ButtonGroup> 
-      </Modal.Footer> : "" }
+            onClick={closeModal}>Nah, I'll pass.</Button>
+        </ButtonGroup>
+      </Modal.Footer> : ""}
     </Modal>
   );
 }

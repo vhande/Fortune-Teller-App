@@ -1,6 +1,6 @@
 # About the Project
 
-A frontend game app to find your future husband/wife.
+A frontend game app to find your future husband/wife. You can test it [here](https://my-fortune-teller.netlify.app).
 
 # What you can do:
 
